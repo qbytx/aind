@@ -1,0 +1,44 @@
+.box {
+    width: 90vw;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+
+.page {
+    background-image: url('../img/background.jpg');
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.page-header {
+    margin-top: 1em;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.page-content {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: aliceblue;
+    height: 2048px;
+}
+
+.page-header-studio {
+    font-size: 2em;
+    text-align: center;
+}
+
+.page-header-title {
+    font-size: 3em;
+    text-align: center;
+}
