@@ -57,6 +57,17 @@
     z-index: 2;
 }
 
+.page-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0.1em;
+    font-family: Arial, Helvetica, sans-serif, monospace;
+    font-size: 1em;
+    color: white
+}
+
 .page-header {
     margin-top: 1em;
     display: flex;
