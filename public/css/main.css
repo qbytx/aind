@@ -84,6 +84,10 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+body, html {
+    margin: 0;
+    padding: 0
+}
 
 body, .fill {
     width: 100%;
