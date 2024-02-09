@@ -1,7 +1,16 @@
+* {
+    font-family: Arial, Helvetica, sans-serif, monospace;
+    font-size: 0.98em;
+    color: white
+}
 
+p {
+    padding: 0;
+    margin: 0;
+}
 
 .box {
-    width: 90vw;
+    width: 85vw;
     max-width: 720px;
     background-color: rgba(0,0,0,0.1);
     padding: 1em;
@@ -9,55 +18,56 @@
     padding: 8px
 }
 
-.parallax {
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    perspective: 1px;
-}
-
-.parallax-layer {
-    position: absolute;
+.background {
+    position: fixed;
     top: 0;
     left: 0;
-}
-
-.p-layer1 {
-    transform: translateZ(-5px);
-  }
-  
-.p-layer2 {
-    transform: translateZ(0px);
-}
-
-.background {
-    z-index: 1;
-    position: absolute;
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.background-element {
-    width: 110vw;
-    height: 100%;
     background-image: url('../img/background.webp');
-    background-size: 100% auto;
+    background-size: cover;
     background-position: top;
+    background-repeat: repeat-y;
+    z-index: -1;
+    filter: blur(4px);
 }
 
-.page {
+/* Adjust the background scrolling speed */
+.content {
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    transition: transform 0.3s ease-out;
+}
+
+.background-container img {
+    filter: blur(4px);
+}
+
+.content {
+    position: relative;
     background-color: transparent;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    z-index: 2;
+    background-color: transparent;
 }
 
-.page-header {
+.content-container {
+    margin-top: 8px;
+    margin-bottom: 1em;
+    height: auto
+}
+
+.content-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0.1em;
+}
+
+header {
     margin-top: 1em;
     display: flex;
     flex-direction: column;
@@ -66,33 +76,13 @@
     padding-bottom: 0.25em;
 }
 
-.page-content {
-    margin-top: 8px;
-    margin-bottom: 1em;
-    height: 2048px;
+.header-studio img {
+    width: 50%;
 }
 
-.page-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0.1em;
-    font-family: Arial, Helvetica, sans-serif, monospace;
-    font-size: 1em;
-    color: white
-}
-
-.page-header-studio img {
-    width: 20vw;
-}
-
-.page-header-title {
-    font-size: 3em;
+.header-title {
+    width: 100%;
     text-align: center;
-}
-
-.title-container {
     display: grid; 
     grid-template-columns: 1fr 1fr; 
     grid-template-rows: 1fr; 
@@ -106,7 +96,6 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding-right: 1%;
 }
 
 .title-1 { 
@@ -114,20 +103,53 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
 }
 
 .title-0 img {
-    width: 20vw;
+    width: 50%;
 }
 
 .title-1 img { 
-    width: 15vw;
+    width: 55%;
+    padding-left: 5%;
 }
 
+.content-flexbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.content-image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.content-grid 
+{  
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". .";
+}
+
+.content-grid > * {
+    padding: 0 2%;
+}
+  
+.content-grid video, .content-grid img {
+    width: 100%;
+    height: auto;
+}
 
 /* css divider */
 
-.divider-container {
+.header-divider {
     width: 100%;
     height: auto;
     padding: 0.5em 0;
@@ -190,18 +212,18 @@
   content:"";  
 }
 
-@media all and (max-width: 750px) {
-/* CSS rules here for screens lower than 750px */
+@media all and (max-width: 720px) {
+/* CSS rules here for screens lower than 720px */
     
-    .page-text {
-        font-size: 0.75em
+    .content-grid 
+    {  
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: 1em 0px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "." 
+        ".";
     }
-}
-
-@media all and (max-width: 320px) {
-    /* CSS rules here for screens lower than 750px */
-        
-        .page-text {
-            font-size: 0.50em
-        }
 }
